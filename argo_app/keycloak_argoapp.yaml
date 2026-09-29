@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: keycloak
+  namespace: argocd
+  # Permet de supprimer automatiquement les ressources K8s si ce fichier est retiré d'Argo CD
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    # URL de ton dépôt
+    repoURL: 'https://github.com/LeVfreuur/Infra.git'
+    # Branche visée sur GitHub
+    targetRevision: keycloak
+    # Repertoire dans le dépôt sur la branche keycloak
+    path: keycloak
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: keycloak
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      # Crée automatiquement le namespace 'keycloak' s'il n'existe pas encore
+      - CreateNamespace=true
