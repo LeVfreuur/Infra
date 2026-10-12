@@ -18,7 +18,7 @@ global:
   ## @param global.security.allowInsecureImages Allows skipping image verification
   ##
   security:
-    allowInsecureImages: false
+    allowInsecureImages: true
   ## Compatibility adaptations for Kubernetes platforms
   ##
   compatibility:
@@ -1258,6 +1258,12 @@ defaultInitContainers:
 ##
 postgresql:
   enabled: true
+
+  image:
+    registry: docker.io
+    repository: bitnamilegacy/postgresql
+    tag: 17.6.0-debian-12-r0
+
   auth:
     postgresPassword: ""
     username: bn_keycloak
