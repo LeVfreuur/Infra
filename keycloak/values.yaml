@@ -259,9 +259,9 @@ command: []
 args: []
 ## @param extraEnvVars Extra environment variables to be set on Keycloak container
 ## Example:
-## extraEnvVars:
-##   - name: FOO
-##     value: "bar"
+extraEnvVars:
+   - name: KC_HOSTNAME
+     value: "http://keycloak.vlab.pnc"
 ##
 extraEnvVars: []
 ## @param extraEnvVarsCM Name of existing ConfigMap containing extra env vars
@@ -610,20 +610,20 @@ service:
 ingress:
   ## @param ingress.enabled Enable ingress record generation for Keycloak
   ##
-  enabled: false
+  enabled: true
   ## @param ingress.pathType Ingress path type
   ##
-  pathType: ImplementationSpecific
+  pathType: Prefix
   ## @param ingress.apiVersion Force Ingress API version (automatically detected if not set)
   ##
   apiVersion: ""
   ## @param ingress.hostname Default host for the ingress record (evaluated as template)
   ##
-  hostname: keycloak.local
+  hostname: keycloak.vlab.pnc
   ## @param ingress.ingressClassName IngressClass that will be be used to implement the Ingress (evaluated as template)
   ## Required if you have more than one IngressClass marked as the default for your cluster
   ##
-  ingressClassName: ""
+  ingressClassName: "traefik"
   ## @param ingress.controller The ingress controller type. Currently supports `default` and `gce`
   ## leave as `default` for most ingress controllers.
   ## set to `gce` if using the GCE ingress controller
