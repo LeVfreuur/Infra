@@ -23,5 +23,3 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      # Crée automatiquement le namespace 'keycloak' s'il n'existe pas encore
-      - CreateNamespace=true
