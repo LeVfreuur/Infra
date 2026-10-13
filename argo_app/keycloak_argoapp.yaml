@@ -9,11 +9,10 @@ metadata:
 spec:
   project: default
   source:
-    # URL de ton dépôt
+    
     repoURL: 'https://github.com/LeVfreuur/Infra.git'
     # Branche visée sur GitHub
     targetRevision: keycloak
-    # Repertoire dans le dépôt sur la branche keycloak
     path: keycloak
   destination:
     server: 'https://kubernetes.default.svc'
