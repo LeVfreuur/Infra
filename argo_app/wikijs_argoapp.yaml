@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: wikijs
-  namespace: wikijs
+  namespace: argo #toujours laisser en argo !!!!
   # Permet de supprimer automatiquement les ressources K8s si ce fichier est retiré d'Argo CD
   finalizers:
     - resources-finalizer.argocd.argoproj.io
