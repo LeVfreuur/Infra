@@ -116,13 +116,13 @@ auth:
   adminUser: user
   ## @param auth.adminPassword Keycloak administrator password for the new user
   ##
-  adminPassword: ""
+  adminPassword: "abcd"
   ## @param auth.existingSecret Existing secret containing Keycloak admin password
   ##
-  existingSecret: ""
+  existingSecret: "abcd"
   ## @param auth.passwordSecretKey Key where the Keycloak admin password is being stored inside the existing secret.
   ##
-  passwordSecretKey: ""
+  passwordSecretKey: "abcd"
   ## @param auth.annotations Additional custom annotations for Keycloak auth secret object
   ##
   annotations: {}
@@ -171,18 +171,18 @@ tls:
   ##       kubectl create secret generic SECRET_NAME --from-file=./keycloak.truststore.jks --from-file=./keycloak.keystore.jks
   ## NOTE: If tls.usePemCerts enabled, make sure the PEM key and cert are named 'tls.key' and 'tls.crt' respectively.
   ##
-  existingSecret: ""
+  existingSecret: "abcd"
   certFilename: "tls.crt"
   certKeyFilename: "tls.key"
   keystoreFilename: "keycloak.keystore.jks"
   truststoreFilename: "keycloak.truststore.jks"
-  keystorePassword: ""
-  truststorePassword: ""
-  passwordsSecret: ""
+  keystorePassword: "abcd"
+  truststorePassword: "abcd"
+  passwordsSecret: "abcd"
 ## @param trustedCertsExistingSecret Name of the existing Secret containing the trusted certificates to validate communications with external services
 ## ref: https://www.keycloak.org/server/keycloak-truststore
 ##
-trustedCertsExistingSecret: ""
+trustedCertsExistingSecret: "abcd"
 ## @param adminRealm Name of the admin realm
 ##
 adminRealm: "master"
@@ -269,7 +269,7 @@ extraEnvVars: []
 extraEnvVarsCM: ""
 ## @param extraEnvVarsSecret Name of existing Secret containing extra env vars
 ##
-extraEnvVarsSecret: ""
+extraEnvVarsSecret: "abcd"
 ## @param containerPorts.http Keycloak HTTP container port
 ## @param containerPorts.https Keycloak HTTPS container port
 ## @param containerPorts.management Keycloak management container port
@@ -1265,11 +1265,11 @@ postgresql:
     tag: 17.6.0-debian-12-r0
 
   auth:
-    postgresPassword: ""
+    postgresPassword: "abcd"
     username: bn_keycloak
-    password: ""
+    password: "abcd"
     database: bitnami_keycloak
-    existingSecret: ""
+    existingSecret: "abcd"
     secretKeys:
       userPasswordKey: password
   architecture: standalone
@@ -1293,9 +1293,9 @@ externalDatabase:
   user: bn_keycloak
   database: bitnami_keycloak
   schema: public
-  password: ""
-  existingSecret: ""
-  existingSecretUserKey: ""
-  existingSecretPasswordKey: ""
+  password: "abcd"
+  existingSecret: "abcd"
+  existingSecretUserKey: "abcd"
+  existingSecretPasswordKey: "abcd"
   annotations: {}
   extraParams: ""
