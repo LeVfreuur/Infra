@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wikijs
+  namespace: wikijs
+  # Permet de supprimer automatiquement les ressources K8s si ce fichier est retiré d'Argo CD
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    
+    repoURL: 'https://github.com/LeVfreuur/Infra.git'
+    # Branche visée sur GitHub
+    targetRevision: wikijs
+    path: wikijs
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: wikijs
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
