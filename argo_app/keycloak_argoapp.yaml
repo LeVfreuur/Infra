@@ -12,7 +12,7 @@ spec:
     
     repoURL: 'https://github.com/LeVfreuur/Infra.git'
     # Branche visée sur GitHub
-    targetRevision: keycloak
+    targetRevision: HEAD
     path: keycloak
   destination:
     server: 'https://kubernetes.default.svc'
